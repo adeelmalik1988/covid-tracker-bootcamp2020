@@ -36,10 +36,6 @@ jobs:
     - name: Build with yarn
       run: yarn build
       
-    - name: Installing pre-requsite react lib
-      run: npm install --save react-chartjs-2 chart.js react-countup axios classnames
-      run: npm install --save @material-ui/core
-      run: npm install --save @material-ui/icons 
     
     - name: Installing surge
       run: npm install -g surge
