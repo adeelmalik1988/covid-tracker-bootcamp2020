@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { capitalize } from '@material-ui/core';
+import Countup from 'react-countup';
+import axios from 'axios'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -32,11 +33,13 @@ export default function FullWidthGrid() {
 
     useEffect(() => {
         async function getData() {
-            const response = await fetch('https://api.thevirustracker.com/free-api?global=stats')
-            let data = await response.json();
-            delete data.results[0].source;
-            setglobalData(data.results[0]);
-            console.log(data.results[0]);
+            const {data:{confirmed,recovered , deaths, lastUpdate}}  = await axios.get('https://covid19.mathdro.id/api')
+            //console.log(data)
+            setglobalData( {confirmed, recovered , deaths, lastUpdate})
+            //delete data.results[0].source;
+            //setglobalData(modifiedData);
+            //console.log(globalData);
+            
         }
 
         getData()
@@ -55,7 +58,13 @@ export default function FullWidthGrid() {
                                     <h3 className={classes.title}>
                                         {key.replace(/_/g,' ')}
                                         </h3>
-                                    <h3>{globalData[key]}</h3>
+                                
+                                    <Countup 
+                                    start={0}
+                                    end={globalData[key].value}
+                                    duration={2.5}
+                                    separator=','
+                                    />
                                 </Paper>
                             </Grid>
                         )

@@ -75,19 +75,7 @@ export default function Navbar() {
                     <Typography className={classes.title} variant="h6" noWrap>
                         Covid-19 Tracker
           </Typography>
-                    <div className={classes.search}>
-                        <div className={classes.searchIcon}>
-                            <SearchIcon />
-                        </div>
-                        <InputBase
-                            placeholder="Enter Country..."
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
-                    </div>
+                    
                 </Toolbar>
             </AppBar>
         </div>
