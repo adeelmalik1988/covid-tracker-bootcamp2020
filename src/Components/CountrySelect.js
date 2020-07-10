@@ -17,11 +17,6 @@ useEffect(() => {
     
 }, [])
 
-console.log(countriesData)
-
-
-
-  
     return (
       <FormControl className={styles.formControl}>
           <NativeSelect defaultValue="" onChange={(e)=>handleCountryChange(e.target.value)} >

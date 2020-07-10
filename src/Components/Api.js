@@ -1,8 +1,4 @@
-import React, { useEffect, useState } from 'react';
 import axios from 'axios'
-
-
-
 
 const url='https://covid19.mathdro.id/api';
 
@@ -12,7 +8,6 @@ let changeableUrl = url;
 
 if(country){
     changeableUrl=`${url}/countries/${country}` 
-    console.log(changeableUrl)
 }
 
 
@@ -32,7 +27,6 @@ export const dailyFetchData = async() => {
 
     try {
         const {data}  = await axios.get(`${url}/daily`)
-        console.log(data)
 
         const modifiedData =  data.map((dailyData)=>({
             confirmed: dailyData.confirmed.total,
@@ -40,7 +34,6 @@ export const dailyFetchData = async() => {
             date: dailyData.reportDate,
         })
         )
-        console.log (modifiedData)
 
         return(modifiedData)
 
@@ -58,15 +51,12 @@ try {
     const fetchData = countries.map((data)=>data.name
 
     )
-    console.log(countries)
-    console.log(fetchData)
+
     return (fetchData)
 
 } catch (error) {
     console.log(error)
     
 }
-
-
 
 }

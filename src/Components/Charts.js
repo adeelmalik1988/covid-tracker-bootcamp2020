@@ -11,10 +11,7 @@ const Chart = ({data:{confirmed,recovered,deaths},country}) => {
 
     useEffect(() => {
         async function getDailyData() {
-            const fetchData = await dailyFetchData()
-            console.log(fetchData)
-
-            setdailyData(fetchData)
+            setdailyData(await dailyFetchData())
             
         }
 
@@ -22,10 +19,6 @@ const Chart = ({data:{confirmed,recovered,deaths},country}) => {
          
 
     }, [])
-
-
-    console.log(dailyData)
-    console.log(dailyData.length)
 
 
     const lineChart = (

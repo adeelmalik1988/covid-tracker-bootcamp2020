@@ -1,6 +1,14 @@
 .formControl{
-    width: 40%;
+    width: 50%;
     margin-bottom: 30px !important;
-    justify-content: 'center' !important;
-    padding: 5% !important;
+   
+    
 }
+
+@media (max-width: 770px){
+    .formControl{
+      width: 100%;
+    }
+  
+  }
+  
