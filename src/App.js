@@ -5,6 +5,7 @@ import Chart from './Components/Charts';
 import Cards from './Components/Cards';
 import {fetchData, countries} from './Components/Api';
 import CountrySelect from './Components/CountrySelect';
+import covid_updated2 from './Images/covid_updated2.png'
 
 function App() {
 
@@ -39,8 +40,8 @@ async function handleCountryChange(country){
  
 
   return (
-    <div className={styles.App}>
-      <Navbar />
+    <div className={styles.container}>
+      <img className={styles.image} src={covid_updated2} alt={'Covid-19'} />
       <Cards data={globalData}/>
       <CountrySelect handleCountryChange={handleCountryChange} />
       
